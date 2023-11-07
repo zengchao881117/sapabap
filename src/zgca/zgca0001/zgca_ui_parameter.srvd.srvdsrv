@@ -1,0 +1,5 @@
+@EndUserText.label: 'Dynamic Parameter'
+define service ZGCA_UI_PARAMETER {
+  expose ZGCA_C_PARAMETER     as DynamicParameter;
+  expose ZGCA_C_PARAMETERITEM as Item;
+}

@@ -1,0 +1,55 @@
+managed implementation in class zgca_bp_i_parameter unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZGCA_I_PARAMETER alias DynamicParameter//alias <alias_name>
+persistent table zgca_t0001
+draft table zgca_t0001_d
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master ( instance )
+//etag master <field_name>
+{
+  field ( readonly )
+  CreatedAt,
+  CreatedBy,
+  LastChangedAt,
+  LastChangedBy,
+  LocalLastChangedAt;
+
+  field ( readonly, numbering : managed ) guid;
+
+  create;
+  update;
+  delete;
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  association _item { create; with draft;}
+}
+
+define behavior for ZGCA_I_PARAMETERITEM alias ParameterItem
+persistent table zgca_t0002
+draft table zgca_t0002_d
+lock dependent by _parameter
+authorization dependent by _parameter
+//etag master <field_name>
+{
+  field ( readonly )
+  CreatedAt,
+  CreatedBy,
+  LastChangedAt,
+  LastChangedBy,
+  LocalLastChangedAt;
+
+   field ( readonly, numbering : managed ) itemguid;
+
+  update;
+  delete;
+  field ( readonly ) Guid;
+  association _parameter{ with draft;}
+}

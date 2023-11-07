@@ -1,0 +1,5 @@
+CLASS zgca_bp_i_parameter DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zgca_i_parameter.
+ENDCLASS.
+
+CLASS zgca_bp_i_parameter IMPLEMENTATION.
+ENDCLASS.

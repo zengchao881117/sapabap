@@ -1,0 +1,46 @@
+@Metadata.layer: #PARTNER
+@UI: {
+  headerInfo: {
+    typeName: 'Itemno',
+    typeNamePlural: 'Item'
+  }
+}
+annotate view ZGCA_C_PARAMETERITEM with
+{
+  @UI.hidden: true
+  Itemguid;
+  @UI.hidden: true
+  Guid;
+  @UI: {
+   lineItem:       [ { position: 10, importance: #HIGH } ],
+   identification: [ { position: 10, label: 'Item No' } ] }
+  Itemno;
+  @UI: {
+  lineItem:       [ { position: 20, importance: #HIGH } ],
+  identification: [ { position: 20, label: 'Sign' } ] }
+  Sign;
+  @UI: {
+   lineItem:       [ { position: 30, importance: #HIGH } ],
+   identification: [ { position: 30, label: 'Option' } ] }
+  Zoption;
+  @UI: {
+   lineItem:       [ { position: 40, importance: #HIGH } ],
+   identification: [ { position: 40, label: 'Low' } ] }
+  Low;
+  @UI: {
+  lineItem:       [ { position: 50, importance:  #LOW } ],
+  identification: [ { position: 50, label: 'Low Description' } ] }
+  Lowdesc;
+  @UI: {
+  lineItem:       [ { position: 70, importance: #HIGH } ],
+  identification: [ { position: 60, label: 'High' } ] }
+  High;
+  @UI: {
+  lineItem:       [ { position: 60, importance: #LOW } ],
+  identification: [ { position: 70, label: 'High Description' } ] }
+  Highdesc;
+  @UI: {
+  lineItem:       [ { position: 80, importance: #HIGH } ],
+  identification: [ { position: 80, label: 'Notes' } ] }
+  Notes;
+}

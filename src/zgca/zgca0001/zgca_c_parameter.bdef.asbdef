@@ -1,0 +1,29 @@
+projection;
+strict ( 2 );
+use draft;
+
+define behavior for ZGCA_C_PARAMETER alias DynamicParameter//alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+
+  use association _Item{ create; }
+
+}
+
+/***************** Child Entity Travel Item *******************/
+define behavior for ZGCA_C_PARAMETERITEM alias Item
+use etag
+{
+  use update;
+  use delete;
+
+  use association _Parameter ;
+}

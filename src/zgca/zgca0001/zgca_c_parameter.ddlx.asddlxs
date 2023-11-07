@@ -1,0 +1,77 @@
+@Metadata.layer: #PARTNER
+@UI: {
+  headerInfo: {
+    typeName: 'Parameter', 
+    typeNamePlural: 'ParamaterName'
+  },
+  presentationVariant: [{
+        sortOrder: [{
+            by: 'Application',
+            direction: #ASC
+        }],
+        groupBy: [ 'Moduleid' ]        
+    }]
+}
+annotate view ZGCA_C_PARAMETER
+    with 
+{  @UI.facet: [ { id:              'Parameter',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Paramater',
+                 position:        10 },
+               { id: 'item', 
+                 purpose: #STANDARD, 
+                 type: #LINEITEM_REFERENCE, 
+                 label: 'Values', 
+                 position: 20, 
+                 targetElement: '_item'},
+               { id: 'Admin', 
+                 purpose: #STANDARD, 
+                 type: #COLLECTION, 
+                 label: 'Administration', 
+                 position: 30} 
+               ]
+
+  @UI.hidden: true
+  Guid;
+ @UI: {
+      lineItem:       [ { position: 10, importance: #LOW } ],
+      identification: [ { position: 10, label: 'Module' } ],
+      selectionField: [ { position: 10 }] }
+  @Search.defaultSearchElement: true 
+    ModuleId;
+  @UI: {
+      lineItem:       [ { position: 20, importance: #LOW } ],
+      identification: [ { position: 20, label: 'Module Name' } ] }
+  @Search.defaultSearchElement: true
+    ModuleName;
+  @UI: {
+      lineItem:       [ { position: 30, importance: #HIGH } ],
+      identification: [ { position: 30, label: 'Application' } ],
+      selectionField: [ { position: 30 }] }
+  @Search.defaultSearchElement: true
+  
+    Application;
+  @UI: {
+      lineItem:       [ { position: 40, importance: #HIGH } ],
+      identification: [ { position: 40, label: 'Application Name' } ]}
+  @Search.defaultSearchElement: true
+    ApplicationName;
+  @UI: {
+      lineItem:       [ { position: 50, importance: #HIGH } ],
+      identification: [ { position: 50, label: 'Paramater' } ],
+      selectionField: [ { position: 50 }] }
+  @Search.defaultSearchElement: true
+    Parameterid;
+  @UI: {
+      lineItem:       [ { position: 60, importance: #HIGH } ],
+      identification: [ { position: 60, label: 'Parameter Name' } ] }
+  @Search.defaultSearchElement: true
+    ParameterName;
+  @UI: {
+      lineItem:       [ { position: 70, importance: #HIGH } ],
+      identification: [ { position: 70, label: 'Notes' } ] }
+  @Search.defaultSearchElement: true
+    Notes;
+    
+}
