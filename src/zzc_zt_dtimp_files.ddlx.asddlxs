@@ -1,0 +1,118 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Batch Import File',
+    typeNamePlural: 'Files',
+    imageUrl: 'Attachment'
+  }
+
+}
+annotate view ZZC_ZT_DTIMP_FILES with
+{
+  @UI.facet: [
+  {
+        id:              'General',
+        targetQualifier: 'General_FG',
+//        parentId:        'Agency',
+        purpose:         #STANDARD,
+        type:            #FIELDGROUP_REFERENCE,
+        label:           'General',
+        position:        10
+      },
+  {
+        id:              'Job',
+        targetQualifier: 'Job_FG',
+//        parentId:        'Agency',
+        purpose:         #STANDARD,
+        type:            #FIELDGROUP_REFERENCE,
+        label:           'Job',
+        position:        20
+      }
+      ]
+  @UI.hidden: true
+  UUID;
+
+  //  @UI.lineItem: [ {
+  //    position: 10 ,
+  //    importance: #MEDIUM,
+  //    label: ''
+  //  } ]
+  //  @UI.identification: [ {
+  //    position: 10 ,
+  //    label: ''
+  //  } ]
+  @UI.fieldGroup:     [ { position: 10, qualifier: 'General_FG', label: 'Configuration' } ]
+  UuidConf;
+
+  @UI.lineItem: [ {
+  position: 11 ,
+  importance: #MEDIUM,
+  label: ''
+  } ]
+  @UI.fieldGroup:     [ { position: 11, qualifier: 'General_FG' } ]
+  Objectname;
+
+  @UI.lineItem: [ {
+    position: 20 ,
+    importance: #MEDIUM,
+    label: ''
+  } ]
+  @UI.fieldGroup:     [ { position: 12, qualifier: 'General_FG' } ]
+  @UI.hidden: true
+  MimeType;
+
+  @UI.lineItem: [ {
+    position: 30 ,
+    importance: #MEDIUM,
+    label: ''
+  } ]
+  @UI.fieldGroup:     [ { position: 20, qualifier: 'General_FG', label: 'Import File here' } ]
+  Attachment;
+
+  @UI.lineItem: [ {
+    position: 40 ,
+    importance: #MEDIUM,
+    label: ''
+  } ]
+  @UI.fieldGroup:     [ { position: 13, qualifier: 'General_FG' } ]
+  @UI.hidden: true
+  FileName;
+
+  @UI.hidden: true
+  LocalLastChangedAt;
+
+
+
+  @UI.lineItem: [ {
+  position: 31,
+  importance: #MEDIUM,
+  label: ''
+  } ]
+  @UI.fieldGroup:     [ { position: 31, qualifier: 'Job_FG' ,label: 'Job Count'} ]
+  JobCount;
+
+  @UI.lineItem: [ {
+  position: 32 ,
+  importance: #MEDIUM,
+  label: ''
+  } ]
+  @UI.fieldGroup:     [ { position: 32, qualifier: 'Job_FG', label: 'Job Name' } ]
+  JobName;
+
+
+  @UI.lineItem: [ {
+  position: 33 ,
+  importance: #MEDIUM,
+  label: ''
+  } ]
+  @UI.fieldGroup:     [ { position: 33, qualifier: 'Job_FG' } ]
+  LogHandle;
+
+  @UI.lineItem: [ {
+  position: 34 ,
+  importance: #MEDIUM,
+  label: ''
+  } ]
+  @UI.fieldGroup:     [ { position: 34, qualifier: 'Job_FG', label: 'Status'} ]
+  Status;
+}

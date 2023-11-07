@@ -1,0 +1,50 @@
+managed implementation in class ZBP_R_ZT_DTIMP_CONF unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZZI_ZT_DTIMP_CONF alias Configuration
+persistent table zzt_dtimp_conf
+draft table ZZT_DTIMP_CONF_D
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+
+{
+  field ( readonly )
+   UUID,
+   CreatedAt,
+   CreatedBy,
+   LastChangedAt,
+   LastChangedBy,
+   LocalLastChangedAt;
+
+  field ( numbering : managed )
+   UUID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZZT_DTIMP_CONF
+  {
+    UUID = uuid;
+    Object = object;
+    Objectname = objectname;
+    Fmname = fmname;
+    Mimetype = mimetype;
+    Sheetname = sheetname;
+    Structname = structname;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = last_changed_by;
+    LastChangedAt = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+}
